@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/add_new_todo_screen.dart';
 
 class TodoListScreen extends StatefulWidget {
   const TodoListScreen({super.key});
@@ -12,11 +13,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.cyan,
         title: Text(
           'Todos',
-          style: TextStyle(color: Colors.white),
         ),
       ),
       body: ListView.builder(
@@ -26,10 +24,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
               title: Text('Todo title'),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Todo body'),
-                  const Text('time')
-                ],
+                children: [const Text('Todo body'), const Text('time')],
               ),
               trailing: Wrap(
                 children: [
@@ -42,7 +37,14 @@ class _TodoListScreenState extends State<TodoListScreen> {
             );
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddNewTodoScreen(),
+            ),
+          );
+        },
         backgroundColor: Colors.deepOrangeAccent,
         child: Icon(Icons.add),
       ),
