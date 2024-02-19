@@ -24,13 +24,28 @@ class _TodoListScreenState extends State<TodoListScreen> {
           itemBuilder: (context, index) {
             return ListTile(
               title: Text('Todo title'),
-              subtitle: Text('Todo body'),
-              trailing: Wrap(children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.delete_forever_outlined)),
-                IconButton(onPressed: (){}, icon: Icon(Icons.edit)),
-              ],),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Todo body'),
+                  const Text('time')
+                ],
+              ),
+              trailing: Wrap(
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.delete_forever_outlined)),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+                ],
+              ),
             );
           }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.deepOrangeAccent,
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
